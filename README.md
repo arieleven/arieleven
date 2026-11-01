@@ -99,6 +99,7 @@ Each one a root-caused bug with a regression test.
 
 | project | PR | bug |
 |---|---|---|
+| locust | [#3584](https://github.com/locustio/locust/pull/3584) | `rest()` crashed on a non-string assert message, so the task died and the request was never reported |
 | redis-py | [#4464](https://github.com/redis/redis-py/pull/4464) | `ssl_validate_ocsp=True` in a connection URL silently skipped OCSP validation |
 | behavex | [#249](https://github.com/hrcorval/behavex/pull/249), [#250](https://github.com/hrcorval/behavex/pull/250), [#251](https://github.com/hrcorval/behavex/pull/251) | hook failures and a literal `]]>` in step text made CI report the wrong result |
 
@@ -106,18 +107,25 @@ Each one a root-caused bug with a regression test.
 
 | project | PR | bug |
 |---|---|---|
+| pytest | [#15310](https://github.com/pytest-dev/pytest/pull/15310) | the mapping assertion diff crashed when `keys()` returned a list |
 | celery | [#10870](https://github.com/celery/celery/pull/10870) | `delay()` ignored positional-only parameters, rejecting valid calls and sending invalid ones to the worker |
 | celery | [#10891](https://github.com/celery/celery/pull/10891) | `crontab(minute='*/2-3')` silently ran every two minutes instead of raising |
 | airflow | [#74838](https://github.com/apache/airflow/pull/74838) | `BranchDateTimeOperator` took the wrong branch for Dags east of UTC |
 | prefect | [#23436](https://github.com/PrefectHQ/prefect/pull/23436) | `RRuleSchedule` RDATE and EXDATE values shifted timezone |
+| starlette | [#3698](https://github.com/Kludex/starlette/pull/3698) | URL-encoded form fields decoded raw UTF-8 as latin-1 |
+| uvicorn | [#3219](https://github.com/Kludex/uvicorn/pull/3219) | chunked request trailers leaked into the scope headers under httptools |
 | redis-py | [#4468](https://github.com/redis/redis-py/pull/4468) | `decode_responses=False` in a URL turned decoding on (reviewed, held for the next major release) |
 | docker-py | [#3458](https://github.com/docker/docker-py/pull/3458) | Dockerfile contents from outside the build context were sent in the query string |
+| PyMySQL | [#1290](https://github.com/PyMySQL/PyMySQL/pull/1290) | `bytearray` values inside sequence parameters were sent as their repr text |
 | apscheduler | [#1166](https://github.com/agronholm/apscheduler/pull/1166) | the SQLAlchemy store returned every job for an empty ID list |
+| allure-python | [#934](https://github.com/allure-framework/allure-python/pull/934) | a step title using a keyword-only default raised `KeyError` |
+| behave | [#1352](https://github.com/behave/behave/pull/1352) | `--tags` stripped `@` from inside tag names, so those tags could not be selected |
+| pytest-bdd | [#843](https://github.com/pytest-dev/pytest-bdd/pull/843) | `--generate-missing` reported defined background steps as missing |
+| python-ulid | [#71](https://github.com/mdomke/python-ulid/pull/71) | `from_datetime` could land one millisecond early |
 | fastmcp | [#5661](https://github.com/PrefectHQ/fastmcp/pull/5661) | resource templates with a literal query string could not be read |
 | litellm | [#45854](https://github.com/BerriAI/litellm/pull/45854) | `trim_messages` changed its return shape depending on the code path |
 | llama_index | [#23460](https://github.com/run-llama/llama_index/pull/23460) | Anthropic prompt-cache markers on system prompts were dropped |
 | crewAI | [#8047](https://github.com/crewAIInc/crewAI/pull/8047) | valid tool arguments rejected by boolean schema bounds |
-| dspy | [#10616](https://github.com/stanfordnlp/dspy/pull/10616) | `XMLAdapter` read a `None` optional list back as `['None']` |
 | moto | [#10360](https://github.com/getmoto/moto/pull/10360) | EventBridge patterns skipped arrays of objects |
 
 ### github
