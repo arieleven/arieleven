@@ -98,7 +98,7 @@ jobs:
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: ${{ github.repository_owner }}
-          repo: testosterone
+          repo: qasight
           filename: metrics/contributors.svg
           template: repository
           committer_message: "chore: refresh metrics (contributors)"
