@@ -102,9 +102,10 @@ Each one a root-caused bug with a regression test.
 
 | project | PR | bug |
 |---|---|---|
-| locust | [#3584](https://github.com/locustio/locust/pull/3584) | `rest()` crashed on a non-string assert message, so the task died and the request was never reported |
+| psycopg | [#1480](https://github.com/psycopg/psycopg/pull/1480) | a negative zero merged client-side became `x--0.0`, which Postgres reads as a comment, silently dropping the rest of the query (such as a `WHERE` clause) |
+| locust | [#3584](https://github.com/locustio/locust/pull/3584), [#3593](https://github.com/locustio/locust/pull/3593) | `rest()` crashed on a non-string assert message, so the task died and the request was never reported; `--show-task-ratio` ignored the dispatcher's user distribution |
 | redis-py | [#4464](https://github.com/redis/redis-py/pull/4464) | `ssl_validate_ocsp=True` in a connection URL silently skipped OCSP validation |
-| watchdog | [#1403](https://github.com/gorakhargosh/watchdog/pull/1403) | `watchmedo generate-tricks-yaml` wrote YAML that `watchmedo tricks` could not load |
+| watchdog | [#1403](https://github.com/gorakhargosh/watchdog/pull/1403), [#1419](https://github.com/gorakhargosh/watchdog/pull/1419) | `watchmedo generate-tricks-yaml` wrote YAML that `watchmedo tricks` could not load; a single string for `ignore_regexes` was compiled character by character |
 | fastmcp | [#5661](https://github.com/PrefectHQ/fastmcp/pull/5661) | resource templates with a literal query string could not be read (landed through maintainer PR [#6248](https://github.com/PrefectHQ/fastmcp/pull/6248)) |
 | behavex | [#249](https://github.com/hrcorval/behavex/pull/249), [#250](https://github.com/hrcorval/behavex/pull/250), [#251](https://github.com/hrcorval/behavex/pull/251), [#255](https://github.com/hrcorval/behavex/pull/255) | hook failures and a literal `]]>` in step text made CI report the wrong result; order tags matched case-sensitively (#255 ships in 4.6.9) |
 
@@ -121,11 +122,9 @@ Each one a root-caused bug with a regression test.
 | prefect | [#23436](https://github.com/PrefectHQ/prefect/pull/23436) | `RRuleSchedule` RDATE and EXDATE values shifted timezone |
 | starlette | [#3698](https://github.com/Kludex/starlette/pull/3698) | URL-encoded form fields decoded raw UTF-8 as latin-1 |
 | uvicorn | [#3219](https://github.com/Kludex/uvicorn/pull/3219) | chunked request trailers leaked into the scope headers under httptools |
-| psycopg | [#1480](https://github.com/psycopg/psycopg/pull/1480) | negative zero floats and decimals were quoted with a leading space |
-| locust | [#3593](https://github.com/locustio/locust/pull/3593) | `--show-task-ratio` ignored the dispatcher's user distribution |
+| locust | [#3597](https://github.com/locustio/locust/pull/3597) | in distributed runs the error report showed `response.failure()` messages as quoted reprs |
 | redis-py | [#4468](https://github.com/redis/redis-py/pull/4468) | `decode_responses=False` in a URL turned decoding on (reviewed, held for the next major release) |
 | docker-py | [#3458](https://github.com/docker/docker-py/pull/3458) | Dockerfile contents from outside the build context were sent in the query string |
-| PyMySQL | [#1290](https://github.com/PyMySQL/PyMySQL/pull/1290) | `bytearray` values inside sequence parameters were sent as their repr text |
 | apscheduler | [#1166](https://github.com/agronholm/apscheduler/pull/1166) | the SQLAlchemy store returned every job for an empty ID list |
 | allure-python | [#934](https://github.com/allure-framework/allure-python/pull/934) | a step title using a keyword-only default raised `KeyError` |
 | behave | [#1352](https://github.com/behave/behave/pull/1352) | `--tags` stripped `@` from inside tag names, so those tags could not be selected |
