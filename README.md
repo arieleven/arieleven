@@ -102,6 +102,8 @@ Each one a root-caused bug with a regression test.
 
 | project | PR | bug |
 |---|---|---|
+| go-vast-client (VAST Data) | [#99](https://github.com/vast-data/go-vast-client/pull/99), [#100](https://github.com/vast-data/go-vast-client/pull/100) | `KeyLocker` let two goroutines hold the same key, breaking the Terraform provider's locking around S3 policy attachments; status-code helpers panicked on wrapped API errors |
+| prefect | [#23436](https://github.com/PrefectHQ/prefect/pull/23436) | `RRuleSchedule` RDATE and EXDATE values shifted timezone |
 | psycopg | [#1480](https://github.com/psycopg/psycopg/pull/1480) | a negative zero merged client-side became `x--0.0`, which Postgres reads as a comment, silently dropping the rest of the query (such as a `WHERE` clause) |
 | locust | [#3584](https://github.com/locustio/locust/pull/3584), [#3593](https://github.com/locustio/locust/pull/3593) | `rest()` crashed on a non-string assert message, so the task died and the request was never reported; `--show-task-ratio` ignored the dispatcher's user distribution |
 | redis-py | [#4464](https://github.com/redis/redis-py/pull/4464) | `ssl_validate_ocsp=True` in a connection URL silently skipped OCSP validation |
@@ -113,13 +115,13 @@ Each one a root-caused bug with a regression test.
 
 | project | PR | bug |
 |---|---|---|
+| terraform-provider-vastdata (VAST Data) | [#36](https://github.com/vast-data/terraform-provider-vastdata/pull/36) | the provider plugin crashed on a wrapped API error in its retry and status-code checks |
 | pytest | [#15310](https://github.com/pytest-dev/pytest/pull/15310) | the mapping assertion diff crashed when `keys()` returned a list |
 | pytest-cov | [#772](https://github.com/pytest-dev/pytest-cov/pull/772) | `--cov-precision` was not passed to the markdown and html reports |
 | kombu | [#2818](https://github.com/celery/kombu/pull/2818) | the filesystem transport consumed messages out of publish order |
 | celery | [#10870](https://github.com/celery/celery/pull/10870) | `delay()` ignored positional-only parameters, rejecting valid calls and sending invalid ones to the worker |
 | celery | [#10891](https://github.com/celery/celery/pull/10891) | `crontab(minute='*/2-3')` silently ran every two minutes instead of raising |
 | airflow | [#74838](https://github.com/apache/airflow/pull/74838) | `BranchDateTimeOperator` took the wrong branch for Dags east of UTC |
-| prefect | [#23436](https://github.com/PrefectHQ/prefect/pull/23436) | `RRuleSchedule` RDATE and EXDATE values shifted timezone |
 | starlette | [#3698](https://github.com/Kludex/starlette/pull/3698) | URL-encoded form fields decoded raw UTF-8 as latin-1 |
 | uvicorn | [#3219](https://github.com/Kludex/uvicorn/pull/3219) | chunked request trailers leaked into the scope headers under httptools |
 | locust | [#3597](https://github.com/locustio/locust/pull/3597) | in distributed runs the error report showed `response.failure()` messages as quoted reprs |
