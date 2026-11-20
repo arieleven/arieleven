@@ -1,5 +1,5 @@
 <h1 align="center">Ariel Even</h1>
-<p align="center"><b>Python &amp; full-stack engineer</b> · Unit 8200 veteran · B.Sc. Computer Science</p>
+<p align="center"><b>Backend engineer · infrastructure</b> · Unit 8200 veteran · B.Sc. Computer Science</p>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/ariel-even-8a125041a"><img src="https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
@@ -103,6 +103,9 @@ Each one a root-caused bug with a regression test.
 | project | PR | bug |
 |---|---|---|
 | go-vast-client (VAST Data) | [#99](https://github.com/vast-data/go-vast-client/pull/99), [#100](https://github.com/vast-data/go-vast-client/pull/100) | `KeyLocker` let two goroutines hold the same key, breaking the Terraform provider's locking around S3 policy attachments; status-code helpers panicked on wrapped API errors |
+| sentry-python | [#8302](https://github.com/getsentry/sentry-python/pull/8302) | whitespace around `=` in incoming W3C baggage made the SDK ignore the upstream `sample_rand`, breaking consistent trace sampling |
+| python-ulid | [#71](https://github.com/mdomke/python-ulid/pull/71) | `from_datetime` and `from_timestamp` could land one millisecond early |
+| CIViC (Griffith Lab) | [#1585](https://github.com/griffithlab/civic-v2/pull/1585) | `when 200 \|\| 201` evaluated to `200`, so any other 2xx from an upstream API returned `nil` |
 | prefect | [#23436](https://github.com/PrefectHQ/prefect/pull/23436) | `RRuleSchedule` RDATE and EXDATE values shifted timezone |
 | psycopg | [#1480](https://github.com/psycopg/psycopg/pull/1480) | a negative zero merged client-side became `x--0.0`, which Postgres reads as a comment, silently dropping the rest of the query (such as a `WHERE` clause) |
 | locust | [#3584](https://github.com/locustio/locust/pull/3584), [#3593](https://github.com/locustio/locust/pull/3593) | `rest()` crashed on a non-string assert message, so the task died and the request was never reported; `--show-task-ratio` ignored the dispatcher's user distribution |
@@ -116,6 +119,10 @@ Each one a root-caused bug with a regression test.
 | project | PR | bug |
 |---|---|---|
 | terraform-provider-vastdata (VAST Data) | [#36](https://github.com/vast-data/terraform-provider-vastdata/pull/36) | the provider plugin crashed on a wrapped API error in its retry and status-code checks |
+| cbioportal-frontend | [#5834](https://github.com/cBioPortal/cbioportal-frontend/pull/5834) | the "open in Jupyter" flow accepted a ready message from any window and posted study data with target `*` |
+| cbioportal-frontend | [#5836](https://github.com/cBioPortal/cbioportal-frontend/pull/5836) | the two-sided Fisher p-value changed with group order |
+| cbioportal | [#12513](https://github.com/cBioPortal/cbioportal/pull/12513) | `User.equals()` compared email and name by reference |
+| CIViC (Griffith Lab) | [#1573](https://github.com/griffithlab/civic-v2/pull/1573), [#1586](https://github.com/griffithlab/civic-v2/pull/1586) | a validation failure in `submitVariantGroup` crashed on an undefined constant; registry credentials were interpolated unquoted into a shell command |
 | pytest | [#15310](https://github.com/pytest-dev/pytest/pull/15310) | the mapping assertion diff crashed when `keys()` returned a list |
 | pytest-cov | [#772](https://github.com/pytest-dev/pytest-cov/pull/772) | `--cov-precision` was not passed to the markdown and html reports |
 | kombu | [#2818](https://github.com/celery/kombu/pull/2818) | the filesystem transport consumed messages out of publish order |
@@ -131,7 +138,6 @@ Each one a root-caused bug with a regression test.
 | allure-python | [#934](https://github.com/allure-framework/allure-python/pull/934) | a step title using a keyword-only default raised `KeyError` |
 | behave | [#1352](https://github.com/behave/behave/pull/1352) | `--tags` stripped `@` from inside tag names, so those tags could not be selected |
 | pytest-bdd | [#843](https://github.com/pytest-dev/pytest-bdd/pull/843) | `--generate-missing` reported defined background steps as missing |
-| python-ulid | [#71](https://github.com/mdomke/python-ulid/pull/71) | `from_datetime` could land one millisecond early |
 | influxdb-client-python | [#734](https://github.com/influxdata/influxdb-client-python/pull/734) | the DataFrame timestamp column was not matched by its exact name |
 | minio-py | [#1574](https://github.com/minio/minio-py/pull/1574) | nanosecond `lastModified` values in PutObjectFanOut results failed to parse |
 | litellm | [#45854](https://github.com/BerriAI/litellm/pull/45854) | `trim_messages` changed its return shape depending on the code path |
